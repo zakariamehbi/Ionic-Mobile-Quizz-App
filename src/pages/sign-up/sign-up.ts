@@ -1,29 +1,28 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { LoginPage } from '../login/login';
-import { QuizzPage } from '../quizz/quizz';
-import { ScorePage } from '../score/score';
-import { SignUpPage } from '../sign-up/sign-up';
+import { Component } from "@angular/core";
+import { NavController } from "ionic-angular";
+import { LoginPage } from "../login/login";
+import { FirebaseProvider } from "./../../providers/firebase/firebase";
 
 @Component({
-  selector: 'page-sign-up',
-  templateUrl: 'sign-up.html'
+	selector: "page-sign-up",
+	templateUrl: "sign-up.html"
 })
 export class SignUpPage {
+	name = "";
+	email = "";
+	password = "";
 
-  constructor(public navCtrl: NavController) {
-  }
-  goToLogin(params){
-    if (!params) params = {};
-    this.navCtrl.push(LoginPage);
-  }goToQuizz(params){
-    if (!params) params = {};
-    this.navCtrl.push(QuizzPage);
-  }goToScore(params){
-    if (!params) params = {};
-    this.navCtrl.push(ScorePage);
-  }goToSignUp(params){
-    if (!params) params = {};
-    this.navCtrl.push(SignUpPage);
-  }
+	constructor(
+		public navCtrl: NavController,
+		public firebaseProvider: FirebaseProvider
+	) {}
+
+	addAccount() {
+		this.firebaseProvider.addAccount(this.name, this.email, this.password);
+		this.goToLogin();
+	}
+
+	goToLogin() {
+		this.navCtrl.push(LoginPage);
+	}
 }

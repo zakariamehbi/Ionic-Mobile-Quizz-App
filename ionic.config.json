@@ -1,7 +1,7 @@
 {
-  "name": "quizz",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
+	"name": "quizz",
+	"integrations": {
+		"cordova": {}
+	},
+	"type": "ionic-angular"
 }

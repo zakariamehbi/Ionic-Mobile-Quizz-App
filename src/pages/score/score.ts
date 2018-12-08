@@ -1,29 +1,28 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { QuizzPage } from '../quizz/quizz';
-import { ScorePage } from '../score/score';
-import { LoginPage } from '../login/login';
-import { SignUpPage } from '../sign-up/sign-up';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
+import { ListPage } from "../list/list";
+import { LoginPage } from "../login/login";
 
 @Component({
-  selector: 'page-score',
-  templateUrl: 'score.html'
+	selector: "page-score",
+	templateUrl: "score.html"
 })
 export class ScorePage {
+	total: number = 0;
+	score: number = 0;
+	percentage: number = 0;
 
-  constructor(public navCtrl: NavController) {
-  }
-  goToQuizz(params){
-    if (!params) params = {};
-    this.navCtrl.push(QuizzPage);
-  }goToScore(params){
-    if (!params) params = {};
-    this.navCtrl.push(ScorePage);
-  }goToLogin(params){
-    if (!params) params = {};
-    this.navCtrl.push(LoginPage);
-  }goToSignUp(params){
-    if (!params) params = {};
-    this.navCtrl.push(SignUpPage);
-  }
+	constructor(public navCtrl: NavController, public navParams: NavParams) {
+		this.total = navParams.get("total");
+		this.score = navParams.get("score");
+		this.percentage = (this.score * 100) / this.total;
+	}
+
+	goToList() {
+		this.navCtrl.push(ListPage);
+	}
+
+	goToLogin() {
+		this.navCtrl.push(LoginPage);
+	}
 }

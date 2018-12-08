@@ -1,0 +1,16 @@
+<ion-header>
+	<ion-navbar [color]="royal">
+		<ion-title> List of quizzes </ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<ion-list>
+		<button
+			ion-item
+			*ngFor="let quizz of quizzArray; index as i"
+			(click)="goToQuizz(quizz)"
+		>
+			Quizz {{ i + 1 }} - {{ quizz.title }}
+		</button>
+	</ion-list>
+</ion-content>
