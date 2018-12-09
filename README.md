@@ -1,4 +1,4 @@
-Hybride mobile app to have fun with quizzes
+Hybrid mobile app to have fun with quizzes
 
 ![img](https://i.imgur.com/UP0robD.png)
 ![img](https://i.imgur.com/YKI1FoC.png)
